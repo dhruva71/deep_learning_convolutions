@@ -6,13 +6,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<std::vector<int>> conv2d(std::vector<std::vector<int>> &matrix, std::vector<std::vector<int>> &kernel);
-
-void repeated_convolution_2d(std::vector<std::vector<int>> &matrix, std::vector<std::vector<int>> &kernel);
-
-std::vector<std::vector<int>> conv3d(std::vector<std::vector<std::vector<int>>> &matrix,
-                                     std::vector<std::vector<std::vector<int>>> &kernel);
-
+// performs 2D convolution on a matrix with a kernel
 std::vector<std::vector<int>> conv2d(std::vector<std::vector<int>> &matrix, std::vector<std::vector<int>> &kernel) {
     unsigned int long matrix_size = matrix.size();
     unsigned int long kernel_size = kernel.size();
@@ -33,6 +27,7 @@ std::vector<std::vector<int>> conv2d(std::vector<std::vector<int>> &matrix, std:
     return new_matrix;
 }
 
+// performs repeated 2D convolution on a matrix till we get a 1x1 matrix
 void repeated_convolution_2d(std::vector<std::vector<int>> &matrix, std::vector<std::vector<int>> &kernel) {
     std::vector<std::vector<int>> new_matrix, old_matrix;
     old_matrix = matrix;
@@ -51,6 +46,7 @@ void repeated_convolution_2d(std::vector<std::vector<int>> &matrix, std::vector<
     } while (new_matrix.size() > 1);
 }
 
+// performs 3D convolution on a 3D matrix with a 3D kernel
 std::vector<std::vector<int>> conv3d(std::vector<std::vector<std::vector<int>>> &matrix,
                                      std::vector<std::vector<std::vector<int>>> &kernel) {
     unsigned int long matrix_size = matrix[1].size();
